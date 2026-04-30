@@ -79,7 +79,7 @@ However, concurrent writes on the SQLite database are limited due to the databas
 
 One possible alternative is to use PostgreSQL for the system, supporting concurrent transcations and large multi-user environments.
 
-## Tests And Build
+## Testing Using Vitest
 
 The system used Vitest to test the scheduling logic before running the full system. It tests for criteria including:
 
