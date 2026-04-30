@@ -92,6 +92,7 @@ export default async function SuppliesPage({ searchParams }: PageProps) {
                 <th className="px-4 py-3 text-right">Quantity</th>
                 <th className="px-4 py-3">Supplier</th>
                 <th className="px-4 py-3">Tracking code</th>
+                <th className="px-4 py-3">Order date</th>
                 <th className="px-4 py-3">ETA</th>
                 <th className="px-4 py-3">Status</th>
               </tr>
@@ -113,6 +114,9 @@ export default async function SuppliesPage({ searchParams }: PageProps) {
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {supply.trackingCode}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                      {formatDateTime(supply.createdAt)}
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatDateTime(supply.eta)}
