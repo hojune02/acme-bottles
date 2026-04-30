@@ -24,4 +24,7 @@ export const supplyOrderSchema = z.object({
   eta: z.coerce.date({
     errorMap: () => ({ message: "ETA must be a valid date and time." })
   })
+  .refine((eta) => eta.getTime() > Date.now(), {
+    message: "ETA must be after the supply order date."
+  })
 });
