@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+dist
+coverage
+.env
+.env*.local
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+.DS_Store
+*.log
+prisma/migrations/*

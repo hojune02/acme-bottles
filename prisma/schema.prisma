@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductType {
+  ONE_LITER_BOTTLE
+  ONE_GALLON_BOTTLE
+}
+
+enum MaterialType {
+  PET_RESIN
+  PTA
+  EG
+}
+
+model PurchaseOrder {
+  id           String      @id @default(cuid())
+  poNumber     String      @unique
+  customerName String
+  product      ProductType
+  quantity     Int
+  notes        String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model SupplyOrder {
+  id           String       @id @default(cuid())
+  material     MaterialType
+  quantityKg   Float
+  supplierName String?
+  trackingCode String       @unique
+  eta          DateTime
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
